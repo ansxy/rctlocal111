@@ -17,8 +17,8 @@ use App\Http\Controllers\DataAnggotaController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -39,7 +39,7 @@ Route::get('/catatan_anggota', [CAController::class, 'index'])->name('catatan_an
 Route::get('/search', [CAController::class, 'search'])->name('search');
 Route::get('/check_in_reports', [CAController::class, 'checkIn'])->name('checkIn');
 Route::get('/data_anggota', [DAController::class, 'index'])->name('data_anggota');
-Route::get('/export',[CAController::class,'export'])->name('export');
+Route::get('/export', [CAController::class, 'export'])->name('export');
 
 Route::get('/kelola_anggota', [DataAnggotaController::class, 'index'])->name('kelola_anggota');
 Route::get('/tambah_anggota', [DataAnggotaController::class, 'create'])->name('tambah_anggota');
