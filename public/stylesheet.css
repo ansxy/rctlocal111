@@ -1,0 +1,28 @@
+.nav-link:hover {
+	background-color: grey;
+}
+
+.jumbotron {
+	background-image: url(images/email-pattern.png);
+	background-size: cover;
+	height: 770px;
+	text-align: center;
+	margin-top: -120px;
+	font-family: initial;
+}
+
+.jumbotron .display-4 {
+	color: rgb(87, 82, 82);
+	margin-top: 200px;
+}
+.jumbotron p {
+	color: rgb(87, 85, 85);
+	font-size: 25px;
+}
+
+.jumbotron hr {
+	border-color: rgb(85, 15, 4);
+	width: 70px;
+	border-width: 3px;
+
+}
