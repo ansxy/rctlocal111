@@ -120,11 +120,14 @@ class CAController extends Controller
         $toDate = $request->toDate;
         $name = $request->name;
 
-        $name = CA::where('username', $name)->first();
-        $checkIn = CA::where('check_in_date', '>=', $fromDate)->where('check_in_date', '<=', $toDate)->where('username', $name)->get();
-        $filterTimeIn = $checkIn->where('time_in', '<=', '8:00:00')->count();
-        $filterTimeOut = $checkIn->where('time_out', '>=', '18:00:00')->count();
 
-        return view('lay.hitung_cekin_hasil', compact('filterTimeIn', 'filterTimeOut', 'name'));
+
+        $checkIn = CA::where('check_in_date', '>=', $fromDate)->where('check_in_date', '<=', $toDate)->where('username', $name)->get();
+        $filterTimeIn = $checkIn->where('time_in', '<=', '08:00:00')->count();
+        $filterLate = $checkIn->where('time_in', '>', '08:00:00')->count();
+        $filterTimeOut = $checkIn->where('time_out', '>=', '18:00:00')->count();
+        $name = CA::where('username', $name)->first();
+
+        return view('lay.hitung_cekin_hasil', compact('filterTimeIn', 'filterTimeOut', 'name', 'filterLate'));
     }
 }

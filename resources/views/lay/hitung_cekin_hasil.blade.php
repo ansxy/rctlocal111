@@ -7,6 +7,7 @@
         </div>
         <ul class="list-group list-group-flush">
         <li class="list-group-item">Tepat Waktu : {{$filterTimeIn}}</li>
+        <li class="list-group-item">Jumlah Absen : {{$filterLate}}</li>
         <li class="list-group-item">Waktu Keluar Lebih : {{$filterTimeOut}}</li>
         </ul>
     </div>
